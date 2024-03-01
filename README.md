@@ -1,13 +1,19 @@
 # Next.js github page test
 
-## next.config.mjs
+## 增加 next.config.js
 ```mjs
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "export"
 };
 
-export default nextConfig;
+module.exports = nextConfig
 ```
 
-## 圖片檔案路徑必須為相對路徑
+### 靜態檔案路徑必須為相對路徑(./image.jpg)
+
+## github action config nextjs.yml 移除以下兩行
+```
+- name: Static HTML export with Next.js
+  run: ${{ steps.detect-package-manager.outputs.runner }} next export
+```
